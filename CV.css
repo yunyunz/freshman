@@ -15,3 +15,12 @@ h2 {
 }
 
 #now {   font-size: x-small;}
+
+table{
+    width: 100%;
+    border: 1px solid black;
+}
+th, td{
+    width: 30%;
+    border: 1px solid black;
+}
