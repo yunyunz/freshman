@@ -16,11 +16,16 @@ h2 {
 
 #now {   font-size: x-small;}
 
-table{
+table.t1{
+    width: 100%;
+    height: 30%;
+  }
+
+table.t2{
     width: 100%;
     border: 1px solid black;
 }
-th, td{
+th.t2, td.t2{
     width: 30%;
     border: 1px solid black;
 }
