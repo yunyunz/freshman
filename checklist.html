@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Checklist</title>
+    <style>
+      body {
+	font-family:Arial;
+      }
+      table {
+        border-collapse: collapse;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px 20px;
+        max-width: 90%;
+        min-width: 50%;
+        margin-bottom:15px;
+      }
+      th {
+        background: #e31836;
+        color: #fff;
+        padding: 10px 20px;
+      }
+      td {
+        background: #555;
+        color: #fff;
+        padding: 5px 5px 5px 5px;
+      }
+      .Text {
+        width:80%;
+      }
+      .Message {
+        color: white;
+        background-color: green;
+        text-align: center;
+      }
+      #BlindFucks{
+        font-size: 200%;
+      }
+      #Top {
+        border-top-right-radius: 3em;
+        border-top-left-radius: 3em;
+      }
+      #Bottom {
+        border-bottom-right-radius: 3em;
+        border-bottom-left-radius: 3em;
+      }
+      .Center{
+        text-align: center;
+      }
+      .Right{
+        text-align: right;
+      }
+      @media only screen and (max-width: 1000px) {
+        table {
+          max-width: 90%;
+          min-width: 80%;
+        }
+      }
+      @media only screen and (min-width: 1001px) and (max-width: 1200px) {
+        table {
+          max-width: 90%;
+          min-width: 70%;
+        }
+      }
+      @media only screen and (min-width: 1201px) and (max-width: 1500px) {
+        table {
+          max-width: 90%;
+          min-width: 60%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <?php
+    if ($successAndDone)
+    {
+      echo "<div id='BlindFucks' class='Message'>$successAndDone</div>";
+    }
+    ?>
+    <form method="POST" name="checklistReport">
+      <table>
+        <colgroup>
+          <col width="20%" style="text-align: right;">
+          <col width="20%" style="text-align: left;">
+          <col width="60%" style="text-align: left;">
+        </colgroup>
+        <tr >
+          <th colspan='3' id='Top'>Computer: <?php echo gethostbyaddr ( $_SERVER["HTTP_EPH_REMOTE_HOST"] ); ?>.</th>
+        </tr><tr>
+          <th colspan='3'>IP Address: <?php echo $_SERVER["HTTP_EPH_REMOTE_HOST"]; ?></th>
+        </tr><tr>
+          <th colspan='3'>Username: <?php echo $_SERVER["HTTP_PYORK_USER"]; ?></th>
+        </tr><tr>
+          <th colspan='3'><?php echo date('Y-m-d h:i:s a', time()); ?></th>
+        </tr>
+        <tr>
+          <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+          <td>Building:</td>
+          <td colspan='2'><select>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select></td>
+          <!--td colspan='2'><input type="text" class='Text' name="building" value="" /></td--->
+        </tr>
+        <tr>
+          <td>Room Number:</td>
+          <td colspan='2'><select>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select></td>
+          <!--<td colspan='2'><input type="text" class='Text' name="room" value="" /></td-->
+        </tr>
+        <tr>
+          <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+          <th colspan="3" class='Center'>Neck Mic:</th>
+        </tr>
+        <tr>
+          <td colspan="3">Turn on, check lead cable integrity, check mic clip, check battery cover, check mic battery and ensure battery spares are present.</td>
+        </tr>
+        <tr>
+          <td colspan='2'></td><td>
+            <input type="radio" name="neckmic" value="3" />N/A<br>
+            <input type="radio" name="neckmic" value="1" />Checked And Ok<br>
+            <input type="radio" name="neckmic" value="0" checked="checked" />Issue Found
+          </td>
+        </tr>
+        <tr>
+          <td class='Right'>Comments:</td>
+          <td colspan='2'><input type="text" class='Text' name="neckcomment" value="" /></td>
+        </tr>
+        <tr>
+          <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+          <th colspan="3" class='Center'>Cables:</th>
+        </tr>
+        <tr>
+          <td colspan="3">Ensure we have one VGA and one audio cable in each room; check VGA cable for potential bent pins - replace if required.</td>
+        </tr>
+        <tr>
+          <td colspan='2'></td><td>
+            <input type="radio" name="cables" value="3" />N/A<br>
+            <input type="radio" name="cables" value="1" />Checked And Ok<br>
+            <input type="radio" name="cables" value="0" checked="checked" />Issue Found
+          </td>
+        </tr>
+        <tr>
+          <td class='Right'>Comments:</td>
+          <td colspan='2'><input type="text" class='Text' name="cablecomment" value="" /></td>
+        </tr>
+        <tr>
+          <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+          <th colspan="3" class='Center'>Laptop Input:</th>
+        </tr>
+        <tr>
+          <td colspan="3">Test with portable document camera.</td>
+        </tr>
+        <tr>
+          <td colspan='2'></td><td>
+            <input type="radio" name="laptop" value="3" />N/A<br>
+            <input type="radio" name="laptop" value="1" />Checked And Ok<br>
+            <input type="radio" name="laptop" value="0" checked="checked" />Issue Found
+        </tr>
+        <tr>
+          <td class='Right'>Comments:</td>
+          <td colspan='2'><input type="text" class='Text' name="laptopcomment" value="" /></td>
+        </tr>
+        <tr>
+          <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+          <th colspan="3" class='Center'>Local Computer:</th>
+        </tr>
+        <tr>
+          <td colspan="3">Turn on; test camtasia; test audio levels; test monitor configuration (in dual monitor rooms). check microsoft office.</td>
+        </tr>
+        <tr>
+          <td colspan='2'></td><td>
+            <input type="radio" name="localcomputer" value="3" />N/A<br>
+            <input type="radio" name="localcomputer" value="1" />Checked And Ok<br>
+            <input type="radio" name="localcomputer" value="0" checked="checked" />Issue Found
+          </td>
+        </tr>
+        <tr>
+          <td class='Right'>Comments:</td>
+          <td colspan='2'><input type="text" class='Text' name="pccomment" value="" /></td>
+        </tr>
+        <tr>
+          <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+          <th colspan="3" class='Center'>Projector:</th>
+        </tr>
+        <tr>
+          <td colspan="3">Turn on, check alignment and potential LCD panel burn ins. Check lamp hours and note them.</td>
+        </tr>
+        <tr>
+          <td colspan='2'></td><td>
+            <input type="radio" name="projector" value="3" />N/A<br>
+            <input type="radio" name="projector" value="1" />Checked And Ok<br>
+            <input type="radio" name="projector" value="0" checked="checked" />Issue Found
+          </td>
+        </tr>
+        <tr>
+          <td class='Right'>Projector lamp hours:</td>
+          <td colspan='2'><input type="text" class='Text' name="lamphours" value="" /></td>
+        </tr>
+        <tr>
+          <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+          <th colspan="3" class='Center'>Document Camera:</th>
+        </tr>
+        <tr>
+          <td colspan="3">Test cable connections.</td>
+        </tr>
+        <tr>
+          <td colspan='2'></td><td>
+            <input type="radio" name="doccam" value="3" />N/A<br>
+            <input type="radio" name="doccam" value="1" />Checked And Ok<br>
+            <input type="radio" name="doccam" value="0" checked="checked" />Issue Found
+          </td>
+        </tr>
+        <tr>
+          <td class='Right'>Comments:</td>
+          <td colspan='2'><input type="text" class='Text' name="doccamcomment" value="" /></td>
+        </tr>
+        <tr>
+          <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+          <td class='Right'>Overall Comments:</td>
+          <td colspan='2'><input type="text" class='Text' name="comments" value="" /></td>
+        </tr>
+        <tr>
+          <td colspan="3" class='Center'>Enter comments here.</td>
+        </tr>
+        <tr>
+          <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+          <td class='Right'>Ticket Numbers:</td>
+          <td colspan='2'><input type="text" class='Text' name="tickets" value="" /></td>
+        </tr>
+        <tr>
+          <td colspan="3" class='Center'>Enter ticket number here or enter later in finalize.</td>
+        </tr>
+        <tr>
+          <td colspan="3"><hr></td>
+        </tr>
+        <tr style="text-align: center;">
+          <th colspan="3" id='Bottom'><input type="submit" name="Submit" value="Submit" /></th>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
