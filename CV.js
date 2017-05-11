@@ -1,7 +1,4 @@
-
-
-var now = document.getElementById("now");
-now.innerHTML = "To do: insert today's date here ... ";
-/*
+function alterdate() {
 var x = new Date(document.lastModified);
-document.getElementById("demo").innerHTML = x;
+document.getElementById("now").innerHTML = x;
+}
