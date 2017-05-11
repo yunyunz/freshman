@@ -1,0 +1,35 @@
+cv Webstie with using HTML,CSS,JavaScript
+
+ABSTRACT
+This lab is aimed to build a personal CV website with html,css style, and JavaScript language.
+The basic process is follow the lab report step by step. First, get the original code through the
+atom.Second, modify it and try to follow the format on the lab manual.Third, add the content that 
+the manual wasn't provide to you, by doing that I do a lot research on website. I understood the 
+code and the structure of building a website base on HTML, CSS, and JavaScript.
+
+INTRODUCTION
+The goal of the lab is to learn how to make your website easier to modify and with less work of
+ changing the code.There are three files to seperate the code and each of them has different 
+ function. CSS is the file for formating the website. JavaScript is the file doing background 
+ running, like doing other action within the webpage.
+
+
+METHOD
+There are three files here I will describe it seperately:
+1.HTML - File name: index.html
+Using tag in html file is how it different from other languages like Java and C. The difficulty 
+is becareful when creating your tag do close it after the content.When doing formating html has 
+higher priority than css. 
+By using this two lines of code: "<link rel="stylesheet" href="CV.css" charset="utf-8"/>", 
+"<script type="text/javascript" src="CV.js"> </script>", it creates a connection with the 
+css file and JavaScript file. Then css file will control the format of the website and JavaScript 
+file will run some background method or action within the webpage which call them.
+
+2.CSS - File name: CV.css
+Most of the formating happened here.
+
+3.JavaScript - File name: CV.js
+Build a function call "" and call it in the html file.
+
+RESULT
+
