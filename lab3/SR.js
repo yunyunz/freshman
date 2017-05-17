@@ -5,17 +5,18 @@ var rescue, target, direction, radarRange, context;
 function start()
 {
 	var canvas = document.getElementById("searchArea");
-	canvas.height = window.prompt("Search area height:", canvas.height);
-	
-	rescue = {x: canvas.width / 2, y: canvas.width / 2};
-	target = {x : canvas.width * Math.random(), y : canvas.height * Math.random()};
+	canvas.height = window.prompt("Search area height:", canvas.height);           // popUp window box and save the client input to canvas.height
+
+	rescue = {x: canvas.width / 2, y: canvas.width / 2};                            // assign value to this var
+	target = {x : canvas.width * Math.random(), y : canvas.height * Math.random()}; // assign random value to this target var
 
 	direction = {dx: 1, dy: 1};
-	radarRange = document.getElementById("radar").value;
-	
+	radarRange = document.getElementById("radar").value;                            // assign value from html textbox
+
 	context = canvas.getContext('2d');
 	startTime = (new Date()).getTime();
-	intervalID = setInterval(simulate, 15);
+	intervalID = setInterval(simulate, 15);                                         // CALL simulate() here in setInterval() every 15ms
+
 }
 
 function simulate()
@@ -24,9 +25,9 @@ function simulate()
 	drawTarget();
 	drawRescue();
 	updateProgress();
-	if (found()) 
+	if (found())
 	{
-		clearInterval(intervalID); 
+		clearInterval(intervalID);
 	}
 	else
 	{
@@ -84,5 +85,5 @@ function toTarget()
 
 function found()
 {
-	return false;
+	return ture;
 }
