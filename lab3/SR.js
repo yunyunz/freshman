@@ -1,6 +1,6 @@
 var TARGET_SIZE = 16;
 var startTime, intervalID;
-var rescue, target, direction, radarRange, context;
+var rescue, target, direction, radarRange, context, distance, totarget;
 
 function start()
 {
@@ -15,23 +15,25 @@ function start()
 
 	context = canvas.getContext('2d');
 	startTime = (new Date()).getTime();
-	intervalID = setInterval(simulate, 15);                                         // CALL simulate() here in setInterval() every 15ms
+	intervalID = setInterval(simulate, 5);                                         // CALL simulate() here in setInterval() every 15ms
 
 }
 
 function simulate()
 {
-	clear();
+	clear();                                                                      // clear function is to clear the last graph of the rescue img
 	drawTarget();
 	drawRescue();
 	updateProgress();
+	updateDistanceTotarget();
+
 	if (found())
 	{
 		clearInterval(intervalID);
 	}
 	else
 	{
-		if (xBoundary()) direction.dx = -direction.dx;
+		if (xBoundary()) direction.dx = -direction.dx;                              // negative direction when If condition is true.
 		if (yBoundary()) direction.dy = -direction.dy;
 		rescue.x += direction.dx;
 		rescue.y += direction.dy;
@@ -63,19 +65,27 @@ function drawRescue()
 
 function xBoundary()
 {
-	return rescue.x >= context.canvas.width;
+	if ((rescue.x + Number(radarRange)) >= context.canvas.width) return true;
+	if (rescue.x <= radarRange) return true;
 }
 
 function yBoundary()
 {
-	return rescue.y >= context.canvas.height;
+	if((rescue.y  + Number(radarRange)) >= context.canvas.height) return true;
+	if(rescue.y <= radarRange) return true;
 }
 
 function updateProgress()
 {
 	var elapsed = document.getElementById("elapsed");
 	elapsed.innerHTML = Math.floor(((new Date()).getTime() - startTime) / 1000);
+}
 
+function updateDistanceTotarget()
+{
+	var distance = document.getElementById("distance");
+	totarget = Math.floor(toTarget());
+	distance.innerHTML = totarget;
 }
 
 function toTarget()
@@ -85,5 +95,10 @@ function toTarget()
 
 function found()
 {
-	return ture;
+	if ( totarget == Number(radarRange) )
+	return true;
+	else {
+		return false;
+	}
+
 }
